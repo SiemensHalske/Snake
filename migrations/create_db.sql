@@ -33,7 +33,7 @@ USE SnakeGame;
 -- Tabelle für Spielerinformationen
 CREATE TABLE IF NOT EXISTS Spieler (
     SpielerID INT AUTO_INCREMENT PRIMARY KEY
-    , Name VARCHAR(255) NOT NULL
+    , Username VARCHAR(255) NOT NULL
     , Email VARCHAR(255)
     , UNIQUE (Email) -- Stellt sicher, dass jede E-Mail-Adresse einzigartig ist
 );
