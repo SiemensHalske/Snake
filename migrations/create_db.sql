@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS Spieler (
     SpielerID INT AUTO_INCREMENT PRIMARY KEY
     , Username VARCHAR(255) NOT NULL
     , Email VARCHAR(255)
+    , Password VARCHAR(255) NOT NULL
     , UNIQUE (Email) -- Stellt sicher, dass jede E-Mail-Adresse einzigartig ist
 );
 

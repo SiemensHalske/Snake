@@ -33,6 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    // Bereinigen der Eingabedaten (let's use da fancy regex...because f**** you, that's why)
+    $username = preg_replace('/[^a-zA-Z0-9_]/', '', $username);
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+
     // Passwort hashen
     $passwordHash = password_hash($password, PASSWORD_ARGON2I);
 
@@ -54,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['message' => 'Nutzer erfolgreich registriert.']);
     } catch (PDOException $e) {
         http_response_code(500);
-        echo json_encode(['message' => 'Fehler bei der Registrierung. Bitte versuchen Sie es später erneut.']);
+        echo json_encode(['message' => 'Fehler bei der Registrierung. Bitte versuchen Sie es später erneut.', 'error' => $e->getMessage()]);
     }
 } else {
     // Nur POST-Anfragen sind erlaubt
