@@ -1,0 +1,158 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{enumitem}
+
+\geometry{a4paper, margin=1in}
+
+\title{Entwicklungsplan für das Snake-Spiel}
+\author{Jan Osing, Gabriel Janich, \\ Hendrik Siemens}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{Projekt Setup und Vorbereitung}
+	\textbf{Ziele:}
+	\begin{itemize}
+		\item Einrichten der Entwicklungsumgebung.
+		\item Festlegung der Projektstruktur und Dateiorganisation.
+	\end{itemize}
+	\textbf{Aufgaben:}
+	\begin{enumerate}
+		\item Webserver (z.B. Apache oder Nginx).
+		\item MySQL-Datenbankserver einrichten.
+		\item PHP-Entwicklungsumgebung konfigurieren (z.B. XAMPP, LAMP).
+		\item Verzeichnisstruktur für das Projekt erstellen.
+	\end{enumerate}
+	
+	\section{Datenbankdesign und -integration}
+	\textbf{Ziele:}
+	\begin{itemize}
+		\item Erstellen und Konfigurieren der MySQL-Datenbank.
+		\item Sicherstellen, dass die Datenbankverbindung effizient und sicher ist.
+	\end{itemize}
+	\textbf{Aufgaben:}
+	\begin{enumerate}
+		\item Ausführen der SQL-Skripte zur Erstellung der Datenbank und Tabellen.
+		\item PHP-Skripte schreiben, um eine Datenbankverbindung herzustellen.
+		\item CRUD-Operationen für Spieler und Scores als PHP-Funktionen implementieren.
+	\end{enumerate}
+	
+	\section{Backend-Entwicklung}
+	\textbf{Ziele:}
+	\begin{itemize}
+		\item Erstellen der Server-Logik zur Verwaltung von Spielsessions und Spielerdaten.
+	\end{itemize}
+	\textbf{Aufgaben:}
+	\begin{enumerate}
+		\item PHP-Skripte entwickeln für:
+		\begin{itemize}
+			\item Anmeldung und Registrierung von Spielern.
+			\item Starten und Beenden von Spielsitzungen.
+			\item Aktualisierung und Abruf von Spieler-Scores.
+		\end{itemize}
+	\end{enumerate}
+	
+	\section{Frontend-Entwicklung}
+	\textbf{Ziele:}
+	\begin{itemize}
+		\item Design und Implementierung der Benutzeroberfläche.
+		\item Entwicklung der Spiellogik.
+	\end{itemize}
+	\textbf{Aufgaben:}
+	\begin{enumerate}
+		\item HTML-Seiten erstellen für Spielansicht, Leaderboard und Spielerprofil.
+		\item CSS für responsive Design verwenden.
+		\item JavaScript für die Spiellogik entwickeln.
+		\item AJAX verwenden, um die Highscore-Tabelle live zu aktualisieren.
+	\end{enumerate}
+	
+	\section{Testing und Qualitätssicherung}
+	\textbf{Ziele:}
+	\begin{itemize}
+		\item Sicherstellen, dass das Spiel auf verschiedenen Geräten und Browsern korrekt funktioniert.
+		\item Überprüfung der Sicherheit, insbesondere der Datenübertragungen.
+	\end{itemize}
+	\textbf{Aufgaben:}
+	\begin{enumerate}
+		\item Funktionstests durchführen für alle Features.
+		\item Performance-Tests für die Webseite und die Datenbank.
+		\item Sicherheitstests, um SQL-Injection und XSS-Angriffe zu verhindern.
+	\end{enumerate}
+	
+	\section{Deployment und Wartung}
+	\textbf{Ziele:}
+	\begin{itemize}
+		\item Veröffentlichung der Anwendung auf einem Live-Server.
+		\item Planung für die Wartung und mögliche Updates.
+	\end{itemize}
+	\textbf{Aufgaben:}
+	\begin{enumerate}
+		\item Auswählen eines Hosting-Anbieters und Konfigurieren des Live-Servers.
+		\item Deployment der Anwendung und der Datenbank auf dem Live-Server.
+		\item Einrichten eines VCS (z.B. Git) für Versionskontrolle.
+		\item Überwachung der Anwendung auf Fehler und Performance-Probleme.
+	\end{enumerate}
+
+\section{Authentifizierung und Sicherheit}
+\textbf{Ziele:}
+\begin{itemize}
+	\item Implementierung einer sicheren Benutzerauthentifizierung und -autorisation.
+	\item Schutz der Benutzerdaten und -interaktionen innerhalb der Anwendung.
+\end{itemize}
+\textbf{Aufgaben:}
+\begin{enumerate}
+	\item Implementierung des Registrierungsprozesses für neue Benutzer:
+	\begin{itemize}
+		\item Entwicklung eines sicheren Registrierungs-Endpoints.
+		\item Verwendung von Passwort-Hashing mit modernen Sicherheitsstandards.
+	\end{itemize}
+	\item Einrichtung des Login-Prozesses unter Verwendung von JSON Web Tokens (JWT):
+	\begin{itemize}
+		\item Integration der Firebase/php-jwt-Bibliothek zur Token-Erzeugung und -Verifizierung.
+		\item Erstellung von Token nach erfolgreicher Authentifizierung und Rückgabe an den Client.
+		\item Validierung des Tokens bei jedem authentifizierungspflichtigen Request.
+	\end{itemize}
+	\item Implementierung des Logout-Mechanismus:
+	\begin{itemize}
+		\item Anleitung des Clients, das gespeicherte Token zu löschen.
+		\item Optional: Einrichtung einer Token-Blacklist auf dem Server zur Invalidierung von Tokens.
+	\end{itemize}
+	\item Sicherstellung der Sicherheit durch HTTPS für alle Kommunikationswege.
+	\item Durchführung von Sicherheitstests, um die Wirksamkeit der implementierten Maßnahmen zu überprüfen.
+\end{enumerate}
+
+\section{Changelog und Dokumentation der Entwicklung}
+\textbf{Einträge:}
+\begin{itemize}
+    \item \textbf{2024-04-19:} 
+        \begin{itemize}
+            \item Projektinitialisierung und Setup der Entwicklungsumgebung.
+            \item Einrichtung von Apache, MySQL, und PHP auf einem Raspberry Pi 4B.
+            \item Beginn der Erstellung der Datenbank und der notwendigen Tabellen für das Spiel.
+            \item Einrichtung und Konfiguration von SSL für sichere Datenübertragungen.
+            \item Erste Schritte zur Konfiguration von Apache und PHP.
+        \end{itemize}
+    \item \textbf{2024-04-20:}
+        \begin{itemize}
+            \item Implementierung des Login-Endpunkts unter Verwendung von JWT für die Authentifizierung.
+            \item Identifizierung und Lösung von Problemen mit der Apache-Konfiguration.
+            \item Erste Tests der Authentifizierungsfunktionen durchgeführt.
+        \end{itemize}
+    \item \textbf{2024-04-20:} 
+        \begin{itemize}
+            \item Implementierung des Registrierungs-Endpunkts und Integration des sicheren Passwort-Hashing.
+            \item Implementierung des Logout-Mechanismus, der das Löschen des Tokens auf der Client-Seite umfasst.
+        \end{itemize}
+\end{itemize}
+
+\vspace{1em}
+\textbf{Dokumentation:} \newline
+Die Entwicklungsdokumentation umfasst technische Spezifikationen, Code-Kommentare und Setup-Anleitungen, um eine konsistente Wartung und zukünftige Erweiterungen zu gewährleisten. Eine detaillierte Dokumentation der Authentifizierungsprozesse wurde ebenfalls hinzugefügt, um die Sicherheitsmechanismen und den Datenschutz innerhalb der Anwendung zu erläutern.
+
+
+
+	
+\end{document}
