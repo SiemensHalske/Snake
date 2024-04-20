@@ -15,7 +15,7 @@ $sql = "SELECT
                 st.TeilnahmeID = sco.TeilnahmeID
         ORDER BY
             sco.Punkte DESC
-        LIMIT 10"; // Begrenzt auf die Top 10 Highscores
+        LIMIT 10"; // Begrenzt auf die Top 10 Highscoress
 
 
 try {
