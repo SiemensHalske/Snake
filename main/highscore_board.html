@@ -5,24 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Highscore Table</title>
+    <link rel="stylesheet" href="../static/css/higscore_board.css">
 </head>
 
 <body>
-    <h1>Top 10 Highscores</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Rank</th>
-                <th>Username</th>
-                <th>Score</th>
-            </tr>
-        </thead>
-        <tbody id="highscore-table">
-            <!-- Highscores werden hier dynamisch eingefügt -->
-        </tbody>
-    </table>
+    <!-- Einbinden der Navbar mit der korrekten SSI-Syntax -->
+    <!--#include file="Snake/main/navbar.html" -->
 
-    <script src='/static/fetch_highscores.js'></script>
+    <header>
+        <h1>Top 10 Highscores</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="highscore-table">
+                <!-- Highscores werden hier dynamisch eingefügt -->
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>© 2024 Hendrik Siemens. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script src='../static/js/fetch_highscores.js'></script>
 </body>
 
 </html>
