@@ -27,11 +27,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "SELECT Password FROM Spieler WHERE Username = :username LIMIT 1";
 
     try {
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':username', $username);
-        $stmt->execute();
-        $user = $stmt->fetch();
+        $stmt = $pdo->prepare($sql);  // SQL-Statement vorbereiten
+        $stmt->bindParam(':username', $username);  // Username-Parameter binden
+        $stmt->execute();  // SQL-Statement ausführen
+        $user = $stmt->fetch();  // Benutzerdaten abrufen
 
+        /*
+            * Überprüfen, ob der Benutzer existiert und das Passwort korrekt ist.
+            * password_verify() überprüft, ob das übergebene Passwort mit dem gehashten Passwort übereinstimmt.
+        */
         if ($user && password_verify($password, $user['Password'])) {
             // JWT Token erstellen
             $issuedAt = time();
@@ -44,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $jwt = JWT::encode($payload, 'dein_sehr_geheimer_schlüssel', 'HS256');
 
+            // Erfolgreiche Anmeldung
             http_response_code(200);
             echo json_encode([
                 'message' => 'Login erfolgreich.',
@@ -55,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode(['message' => 'Login fehlgeschlagen. Überprüfen Sie Ihre Anmeldedaten.']);
         }
     } catch (PDOException $e) {
-        // Fehlerbehandlung
+        // generelle Fehlerbehandlung
         http_response_code(500);
         echo json_encode(['message' => 'Datenbankfehler: ' . $e->getMessage()]);
     }
