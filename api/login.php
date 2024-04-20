@@ -1,4 +1,12 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
 include 'db_connect.php'; // Stellt die Datenbankverbindung her
 
 // Überprüfen, ob die Anfrage vom Typ POST ist
@@ -25,9 +33,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['Password'])) {
-            // Erfolgsmeldung
+            // JWT Token erstellen
+            $issuedAt = time();
+            $expirationTime = $issuedAt + 3600;  // Token gültig für 1 Stunde
+            $payload = [
+                'iat' => $issuedAt,
+                'exp' => $expirationTime,
+                'username' => $username
+            ];
+
+            $jwt = JWT::encode($payload, 'dein_sehr_geheimer_schlüssel', 'HS256');
+
             http_response_code(200);
-            echo json_encode(['message' => 'Login erfolgreich.']);
+            echo json_encode([
+                'message' => 'Login erfolgreich.',
+                'token' => $jwt
+            ]);
         } else {
             // Fehler bei der Anmeldung
             http_response_code(401);
