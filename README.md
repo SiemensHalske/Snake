@@ -1,6 +1,8 @@
 # SnakeGame
 
-SnakeGame ist ein webbasiertes Spiel, das in PHP entwickelt wurde und auf einem Apache-Webserver mit einer MySQL-Datenbank läuft. Das Spiel ermöglicht es den Benutzern, Snake zu spielen und ihre Punktzahlen mit anderen Spielern zu vergleichen.
+SnakeGame ist ein webbasiertes Spiel, das in PHP entwickelt wurde und auf einem Apache-Webserver mit einer MySQL-Datenbank läuft. 
+
+Das Spiel ermöglicht es den Benutzern, Snake zu spielen und ihre Punktzahlen mit anderen Spielern zu vergleichen.
 
 ## Mitwirkende
 
@@ -19,16 +21,22 @@ SnakeGame ist ein webbasiertes Spiel, das in PHP entwickelt wurde und auf einem 
 ## Features
 
 - Anmeldung und Registrierung von Benutzern
-- Spiel-Session-Verwaltung für Snake
-- Anzeige von Bestenlisten und Spielerprofilen
 - Token-basierte Authentifizierung für sichere Benutzeranmeldungen
 
 ## Technologien
 
-- PHP
-- MySQL
-- JavaScript
-- HTML/CSS
+- PHP:
+    - PDO (Datenbankverbindung)
+    - JSON Web Tokens (Authentifizierung)
+    - Login und Nutzerregistrierung
+- MariaDB (MySQL):
+    - Datenbank für Benutzer und Punktzahlen
+- Apache:
+    - Webserver für die Bereitstellung des Spiels
+- JavaScript:
+    - Spiellogik und Benutzeroberfläche
+- HTML/CSS:
+    - Benutzeroberfläche und Design
 
 ## Lizenz
 
