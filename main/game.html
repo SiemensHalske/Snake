@@ -7,6 +7,7 @@
     <title>Snake Game</title>
     <link rel="stylesheet" href="../static/css/game.css">
     <script src="../static/js/load_navbar.js"></script>
+    <script src="../static/js/snake.js"></script>
 </head>
 
 <body>
@@ -43,9 +44,21 @@
         <!-- Unten Bereich -->
         <div class="row" id="bottom-row">
             <p>
-                <button class="start-button">Start</button>
-                <button class="pause-button">Pause</button>
-                <button class="reset-button">Reset</button>
+                <button class="start-button"
+                    onclick="startGame()"
+                >
+                    Start
+                </button>
+                <button class="pause-button"
+                    onclick="pauseGame()"
+                >
+                    Pause
+                </button>
+                <button class="reset-button"
+                    onclick="resetGame()"
+                >
+                    Reset
+                </button>
             </p>
         </div>
 
