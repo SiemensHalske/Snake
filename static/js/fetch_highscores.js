@@ -1,6 +1,6 @@
 // Funktion zum Abrufen der Highscores und Aktualisieren der Tabelle
 function fetchHighscores() {
-    fetch('get_highscores.php')
+    fetch('../../api/get_highscores.php')
         .then(response => response.json())
         .then(data => {
             // Leert die vorhandene Tabelle

@@ -1,0 +1,137 @@
+/* Stile für das Snake-Spiel */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333;
+    /* Dunkelgraue Navbar */
+    color: white;
+    padding: 10px 20px;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 15px;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background-color: #555;
+    /* Etwas hellerer Grauton für Hover */
+    color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#left-column {
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    /* Dunkelgraue Hintergrundfarbe für den linken Bereich */
+    color: white;
+    text-align: center;
+}
+
+#game-column {
+    justify-content: center;
+    align-items: center;
+}
+
+#right-column {
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    /* Dunkelgraue Hintergrundfarbe für den rechten Bereich */
+    color: white;
+    text-align: center;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-canvas {
+    align-items: center;
+    border: 2px solid #333;
+    background-color: #fff;
+    width: 400px;
+    height: 400px;
+}
+
+#bottom-row {
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: #333;
+    /* Hintergrundfarbe für den unteren Bereich */
+    color: white;
+}
+
+footer {
+    background-color: #333;
+    /* Dunkelgraue Fußzeile */
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Stile für die Buttons */
+
+.start-button,
+.pause-button,
+.reset-button {
+    background-color: #4CAF50;
+    /* Grün */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.start-button:hover,
+.pause-button:hover,
+.reset-button:hover {
+    background-color: #45a049;
+    /* Dunkleres Grün beim Hover */
+}

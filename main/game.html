@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="../static/css/game.css">
+    <script src="../static/js/load_navbar.js"></script>
+    <script src="../static/js/snake.js"></script>
+</head>
+
+<body>
+    <!-- Platzhalter für die Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <h1>Snake Game</h1>
+
+    <div class="container">
+        <div class="row" id="top-row">
+            <!-- Links Bereich -->
+            <div class="column" id="left-column">
+                <p>Score: <span id="score">0</span></p>
+            </div>
+
+            <!-- Spielbereich -->
+            <div class="column" id="game-column">
+                <div id="game-container">
+                    <!-- Game Area -->
+                    <canvas id="game-canvas" width="400" height="400"></canvas>
+                </div>
+            </div>
+
+            <!-- Rechts Bereich -->
+            <div class="column" id="right-column">
+                <p>Spielanleitung:</p>
+                <p>Benutze die Pfeiltasten, um die Schlange zu steuern.</p>
+                <p>Iss die Äpfel, um Punkte zu sammeln.</p>
+                <p>Vermeide es, gegen die Wände oder gegen dich selbst zu stoßen.</p>
+                <p>Viel Spaß!</p>
+            </div>
+        </div>
+
+        <!-- Unten Bereich -->
+        <div class="row" id="bottom-row">
+            <p>
+                <button class="start-button"
+                    onclick="startGame()"
+                >
+                    Start
+                </button>
+                <button class="pause-button"
+                    onclick="pauseGame()"
+                >
+                    Pause
+                </button>
+                <button class="reset-button"
+                    onclick="resetGame()"
+                >
+                    Reset
+                </button>
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2024 Die Echsenmenschen. Er fuhr Ford und kam nie wieder.</p>
+        </footer>
+    </div>
+
+    <script>
+        //TODO Add JavaScript for the game page
+    </script>
+</body>
+
+</html>

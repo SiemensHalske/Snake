@@ -1,0 +1,85 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    /* Dunkler Hintergrund für den gesamten Körper */
+    color: #e0e0e0;
+    /* Helle Schriftfarbe für guten Kontrast */
+}
+
+.navbar {
+    background-color: #333;
+    /* Dunkelgraue Navbar */
+    color: white;
+    padding: 10px 20px;
+    overflow: hidden;
+}
+
+
+.navbar a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+
+    border-radius: 15px;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background-color: #555;
+    /* Etwas hellerer Grauton für Hover */
+    color: white;
+}
+
+header {
+    background-color: #222;
+    /* Sehr dunkles Grau für den Header */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    color: #e0e0e0;
+    /* Helle Schriftfarbe */
+
+    max-width: 800px;
+}
+
+th,
+td {
+    padding: 8px 20px;
+    border: 1px solid #444;
+    /* Dunklere Grenzen für Tabellenelemente */
+
+    text-align: center;
+}
+
+th {
+    background-color: #555;
+    /* Dunkelgraue Kopfzeilen */
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #333;
+    /* Zebra-Striping für Zeilen, noch dunkler */
+}
+
+footer {
+    background-color: #333;
+    /* Dunkelgraue Fußzeile */
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

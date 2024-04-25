@@ -5,24 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Highscore Table</title>
+    <link rel="stylesheet" href="../static/css/higscore_board.css">
+    <script src="../static/js/load_navbar.js"></script>
 </head>
 
 <body>
-    <h1>Top 10 Highscores</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Rank</th>
-                <th>Username</th>
-                <th>Score</th>
-            </tr>
-        </thead>
-        <tbody id="highscore-table">
-            <!-- Highscores werden hier dynamisch eingefügt -->
-        </tbody>
-    </table>
+    <!-- Platzhalter für die Navbar -->
+    <div id="navbar-placeholder"></div>
 
-    <script src='/static/fetch_highscores.js'></script>
+    <header>
+        <h1>Top 10 Highscores</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="highscore-table">
+                <!-- Highscores werden hier dynamisch eingefügt -->
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>© 2024 Die Echsenmenschen. Er fuhr Ford und kam nie wieder.</p>
+    </footer>
+
+    <script src='../static/js/fetch_highscores.js'></script>
 </body>
 
 </html>

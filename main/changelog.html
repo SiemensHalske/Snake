@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Changelog - SnakeGame</title>
+    <link rel="stylesheet" href="../static/css/changelog.css">
+    <script src="../static/js/load_navbar.js"></script>
+</head>
+
+<body>
+    <!-- Platzhalter für die Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <header>
+        <h1>Changelog - SnakeGame</h1>
+    </header>
+    <table>
+        <tr>
+            <th>Datum</th>
+            <th>Einträge</th>
+        </tr>
+        <tr>
+            <td>2024-04-19</td>
+            <td>
+                <ul>
+                    <li>Projektinitialisierung und Setup der Entwicklungsumgebung.</li>
+                    <li>Einrichtung von Apache, MySQL und PHP auf einem Raspberry Pi 4B.</li>
+                    <li>Beginn der Erstellung der Datenbank und der notwendigen Tabellen für das Spiel.</li>
+                    <li>Einrichtung und Konfiguration von SSL für sichere Datenübertragungen.</li>
+                    <li>Erste Schritte zur Konfiguration von Apache und PHP.</li>
+                    <li>SQL-Skript hinzugefügt, um die SnakeGame-Datenbank und -Tabellen zu erstellen.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>2024-04-20</td>
+            <td>
+                <ul>
+                    <li>Implementierung des Login-Endpunkts unter Verwendung von JWT für die Authentifizierung.</li>
+                    <li>Identifizierung und Lösung von Problemen mit der Apache-Konfiguration.</li>
+                    <li>Erste Tests der Authentifizierungsfunktionen durchgeführt.</li>
+                    <li>Implementierung des Registrierungs-Endpunkts und Integration des sicheren Passwort-Hashing.</li>
+                    <li>Implementierung des Logout-Mechanismus, der das Löschen des Tokens auf der Client-Seite umfasst.
+                    </li>
+                    <li>Erstellung von Bash-Skripten zur Automatisierung verschiedener Aufgaben, darunter Überwachung,
+                        Systembereinigung, Aktualisierung und Benachrichtigungen.</li>
+                    <li>Erstellung einer PHP-Datei für das Highscore-Board.</li>
+                    <li>Erstellung einer HTML-Seite für das Highscore-Board.</li>
+                    <li>Bash-Skript zur Begrenzung der Abfrageergebnisse der Highscores auf die Top 10 hinzugefügt.</li>
+                    <li>Bash-Skript für die verbesserte Erstellung von Backup-Verzeichnissen hinzugefügt.</li>
+                    <li>Bash-Skript zur Standardisierung der Zeilenenden in Backup-Skripten hinzugefügt.</li>
+                    <li>Bash-Skript zur Überarbeitung des reindex_db.sh-Skripts zur Verbesserung der Fehlerbehandlung
+                        und Verbindungsprüfungen hinzugefüttedb.sh-Skript hinzugefügt.</li>
+                    <li>Bash-Skript zur Behebung von Fehlern und Verbesserung der Fehlerbehandlung und
+                        Verbindungsprüfungen im reindex_db.sh-Skript hinzugefügt.</li>
+                    <li>PHP-Datei zur Verbesserung der Codestruktur und Fehlerbehandlung in login.php überarbeitet.</li>
+                    <li>README.md mit zusätzlichen Informationen über die verwendeten Technologien in SnakeGame
+                        aktualisiert.</li>
+                    <li>Dokumentation für das Repository hinzugefügt und eine README.md hinzugefügt.</li>
+                    <li>login.php überarbeitet, um die JWT-Token-Generierung einzuschließen und sie im Antwort zu
+                        senden.</li>
+                    <li>get_user_data.php zur Verbesserung der Codestruktur und Fehlerbehandlung überarbeitet.</li>
+                    <li>Registrierungsformular-Eingabe-Sanierung und Fehlerbehandlung in registration.php überarbeitet.
+                    </li>
+                    <li>Tabellenspaltenname in der Spieler-Tabelle von 'Name' in 'Username' aktualisiert.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>2024-04-21</td>
+            <td>
+                <ul>
+                    <li>Verbesserung der UI und Backend-Integration des Highscore-Boards.</li>
+                    <li>Stilisierung der Highscore-Board-Seite und Einbindung der Navbar.</li>
+                    <li>Refaktorisierung des JavaScript-Codes zur Abfrage der Highscores in eine eigene Datei im
+                        Verzeichnis static/js.</li>
+                    <li>Aktualisierung der Dateiberechtigungen zur Konsistenz.</li>
+                    <li>Korrektur eines Tippfehlers im SQL-Kommentar zur Verbesserung der Code-Klarheit.</li>
+                    <li>Deutsche Kommentare in der Navbar-SSI überprüfen und bereinigen.</li>
+                    <li>Verbesserung der Navbar- und Tabellenstile für die Highscore-Seite.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>2024-04-22</td>
+            <td>
+                <ul>
+                    <li>Aktualisierung des Fußtextes der Highscore-Tafel in der Datei game.html.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>2024-04-23</td>
+            <td>
+                <ul>
+                    <li>Hinzufügen der Snake-Spiellogik und der UI-Ereignishandler.</li>
+                    <li>Integration der Kern-Snake-Spiellogik aus snake.js zur Steuerung der Spielzustände wie Starten,
+                        Pausieren und Zurücksetzen.</li>
+                    <li>Verbindung der bestehenden Start-, Pause- und Zurücksetz-Buttons, um die entsprechenden Aktionen
+                        im Snake-Spiel-Engine auszulösen.</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <footer>
+        <p>© 2024 SiemensHalske, Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+
+</html>

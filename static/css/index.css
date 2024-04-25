@@ -1,0 +1,65 @@
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    /* Dunkler Hintergrund für den gesamten Körper */
+    color: #e0e0e0;
+    /* Helle Schriftfarbe für guten Kontrast */
+}
+
+.navbar {
+    background-color: #333;
+    /* Dunkelgraue Navbar */
+    color: white;
+    padding: 10px 20px;
+    overflow: hidden;
+}
+
+
+.navbar a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+
+    border-radius: 15px;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background-color: #555;
+    /* Etwas hellerer Grauton für Hover */
+    color: white;
+}
+
+header {
+    background-color: #222;
+    /* Sehr dunkles Grau für den Header */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    /* Dunkelgraue Fußzeile */
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
