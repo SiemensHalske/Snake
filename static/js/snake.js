@@ -30,7 +30,7 @@ function init() {
 
     // Zeichne das Spiel
     draw();
-
+    
     // Starte das Spiel
     main();
 }
