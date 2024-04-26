@@ -6,6 +6,7 @@ let score;
 let gameSpeed;
 let gameState;
 
+
 // Funktion zum Initialisieren des Spiels
 function init() {
     canvas = document.getElementById('game-canvas');
@@ -30,22 +31,18 @@ function init() {
 
     // Zeichne das Spiel
     draw();
-    
+
     // Starte das Spiel
     main();
 }
 
 
-// Hauptspielschleife
 function main() {
-    // Aktualisiere das Spiel nur, wenn es läuft
     if (gameState === 'running') {
-        update();
+        update(); // Aktualisiert den Spielzustand, einschließlich der Position der Schlange und Kollisionen
+        draw();   // Zeichnet den aktuellen Zustand des Spiels, einschließlich Schlange und Essen
     }
-    if (snake) {
-        draw();
-    }
-    setTimeout(main, gameSpeed);
+    requestAnimationFrame(main); // Verwende requestAnimationFrame für eine optimierte Animation
 }
 
 // Funktion zum Aktualisieren des Spielzustands
@@ -102,39 +99,48 @@ function gameOver() {
 class Snake {
     constructor() {
         this.body = [{ x: 10, y: 10 }];
-        this.direction = { x: 1, y: 0 };
+        this.direction = { x: 0, y: 0 }; // Initial keine Bewegung
     }
 
     update() {
+        // Berechne die neue Kopfposition basierend auf der aktuellen Richtung
         const head = { x: this.body[0].x + this.direction.x, y: this.body[0].y + this.direction.y };
+
+        // Überprüfe, ob der neue Kopf mit dem Rand des Spielfelds
+        // oder einem Teil des Schlangenkörpers kollidiert
+        if (this.checkCollision(head)) {
+            gameOver();  // Beendet das Spiel, wenn eine Kollision erkannt wird
+            return;  // Beendet die Update-Methode vorzeitig
+        }
+
+        // Füge den neuen Kopf zum Anfang der Schlange hinzu
         this.body.unshift(head);
+
+        // Entferne das letzte Element des Schlangenkörpers,
+        // um die Bewegung zu simulieren
         this.body.pop();
     }
 
     draw() {
         this.body.forEach(segment => {
-            const snakeElement = document.createElement('div');
-            snakeElement.style.gridRowStart = segment.y;
-            snakeElement.style.gridColumnStart = segment.x;
-            snakeElement.classList.add('snake');
-            document.getElementById('game-container').appendChild(snakeElement);
+            ctx.fillStyle = '#00FF00'; // Setze die Farbe der Schlange
+            ctx.fillRect(segment.x * 20, segment.y * 20, 20, 20); // Zeichne jedes Segment der Schlange
         });
     }
 
-    eat(food) {
-        const head = { x: this.body[0].x + this.direction.x, y: this.body[0].y + this.direction.y };
-        if (head.x === food.position.x && head.y === food.position.y) {
-            this.body.push({ ...head });
-            food.pickLocation();
+    // Überprüft Kollision mit den Wänden oder dem eigenen Körper
+    checkCollision(head) {
+        // Kollisionsprüfung mit den Wänden
+        if (head.x < 0 || head.x >= canvas.width / 20 || head.y < 0 || head.y >= canvas.height / 20) {
+            return true; // Kollision mit dem Rand des Spielfelds
         }
-    }
-
-    checkCollision() {
-        const head = this.body[0];
-        return (
-            this.body.some((segment, index) => index !== 0 && segment.x === head.x && segment.y === head.y) ||
-            head.x >= 20 || head.x <= 0 || head.y >= 20 || head.y <= 0
-        );
+        // Kollisionsprüfung mit dem eigenen Körper
+        for (let i = 4; i < this.body.length; i++) {  // Beginnt bei 4, um den Kopf nicht mit den ersten Segmenten zu überprüfen
+            if (head.x === this.body[i].x && head.y === this.body[i].y) {
+                return true; // Kollision mit sich selbst
+            }
+        }
+        return false; // Keine Kollision gefunden
     }
 }
 
@@ -160,31 +166,47 @@ class Food {
     }
 }
 
+
 // Eventlistener für die Tastatureingaben
 document.addEventListener('keydown', function (event) {
-    switch (event.key) {
-        case 'ArrowUp':
-            if (snake.direction.y !== 1) {
-                snake.direction = { x: 0, y: -1 };
-            }
-            break;
-        case 'ArrowDown':
-            if (snake.direction.y !== -1) {
-                snake.direction = { x: 0, y: 1 };
-            }
-            break;
-        case 'ArrowLeft':
-            if (snake.direction.x !== 1) {
-                snake.direction = { x: -1, y: 0 };
-            }
-            break;
-        case 'ArrowRight':
-            if (snake.direction.x !== -1) {
-                snake.direction = { x: 1, y: 0 };
-            }
-            break;
+    console.log(`Key pressed: ${event.key}`);  // Zeigt, welche Taste gedrückt wurde.
+
+    let up_keys = ['ArrowUp', 'w', 'W'];
+    let down_keys = ['ArrowDown', 's', 'S'];
+    let left_keys = ['ArrowLeft', 'a', 'A'];
+    let right_keys = ['ArrowRight', 'd', 'D'];
+
+    if (up_keys.includes(event.key)) {
+        console.log('Trying to move up');
+        if (snake.direction.y !== 1) {
+            snake.direction = { x: 0, y: -1 };
+        } else {
+            console.log('Move blocked: Currently moving down');
+        }
+    } else if (down_keys.includes(event.key)) {
+        console.log('Trying to move down');
+        if (snake.direction.y !== -1) {
+            snake.direction = { x: 0, y: 1 };
+        } else {
+            console.log('Move blocked: Currently moving up');
+        }
+    } else if (left_keys.includes(event.key)) {
+        console.log('Trying to move left');
+        if (snake.direction.x !== 1) {
+            snake.direction = { x: -1, y: 0 };
+        } else {
+            console.log('Move blocked: Currently moving right');
+        }
+    } else if (right_keys.includes(event.key)) {
+        console.log('Trying to move right');
+        if (snake.direction.x !== -1) {
+            snake.direction = { x: 1, y: 0 };
+        } else {
+            console.log('Move blocked: Currently moving left');
+        }
     }
 });
+
 
 // Initialisiere das Spiel, wenn das HTML-Dokument geladen wurde
 document.addEventListener('DOMContentLoaded', init);
