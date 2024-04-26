@@ -7,6 +7,7 @@
 3. [Konfiguration](#konfiguration)
 4. [Verwendung](#verwendung)
 5. [Technologien](#technologien)
+   - [Hardware](hardware.md)
    - [PHP](#php)
      - [PDO (Datenbankverbindung)](#pdo-datenbankverbindung)
    - [MariaDB (MySQL)](#mariadb-mysql)
