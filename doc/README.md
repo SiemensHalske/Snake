@@ -157,4 +157,3 @@ $pass = 'password
 
 In diesem Beispiel wird der Benutzername (`root`) und das Passwort (`password`) verwendet, um sich bei der Datenbank anzumelden.
 Aus Sicherheitsgründen sollten Benutzername und Passwort in einer separaten Konfigurationsdatei gespeichert und nicht im Quellcode fest codiert werden.
-
