@@ -19,7 +19,7 @@
     - [HTML/CSS](#htmlcss)
     - [Composer](#composer)
         - [Externe Bibliotheken](#externe-bibliotheken)
-- [Dokumentation](doc/doc.md)
+- [Dokumentation](doc.md)
 
 ## Ordnerstruktur
 ```
