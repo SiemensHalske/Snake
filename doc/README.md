@@ -44,15 +44,6 @@ SnakeGame
 └───vendor
 ```
 
-- **doc**: Enthält die Dokumentation des Projekts.
-- **api**: Enthält die API-Dateien für die Kommunikation zwischen Frontend und bspw. der Datenbank.
-- **main**: Enthält die meisten HTML-Dateien, die für das Spiel benötigt werden.
-- **auth**: Enthält die Dateien für die Authentifizierung und Registrierung von Benutzern.
-- **migrations**: Enthält SQL-Dateien, die verwendet werden, um die Datenbank zu initialisieren und zu aktualisieren.
-- **Scripts**: Enthält Skripte, die für die Entwicklung und das Testen des Spiels verwendet werden.
-- **static**: Enthält statische Dateien wie JavaScript, CSS und Bilder.
-- **vendor**: Enthält externe Bibliotheken und Abhängigkeiten, die für das Spiel benötigt werden. Hauptsächlich für Composer-Pakete.
-
 ### doc
 
 Der `doc`-Ordner enthält die Dokumentation des Projekts.
