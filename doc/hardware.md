@@ -7,6 +7,7 @@
    - [Built-In-Speicher](#built-in-speicher)
    - [Kühlung](#kühlung)
    - [Netzwerk](#netzwerk)
+        - [DynDNS](#dyndns)
    - [GPIO Header](#gpio-header)
 
 ## Einleitung
@@ -45,7 +46,40 @@ Die Lüfter werden über den GPIO Header des Raspberry Pi 4 B mit Strom versorgt
 
 ### Netzwerk
 
-Der Raspberry Pi 4 B hat einen Gigabit Ethernet Port, über den er mit dem Netzwerk verbunden ist. Der Raspberry Pi 4 B ist über ein 1m langes Ethernet Kabel mit der WLAN-Brücke verbunden, die den Zugang zum Internet über eine weitere WLAN-Verbindung und schließlich über ein Ethernet-Kabel zum Router herstellt.
+Der Raspberry Pi 4 B hat einen Gigabit Ethernet Port, über den er mit dem Netzwerk verbunden ist.
+
+##### Netzwerkaufbau
+
+```
+Raspberry Pi 4 B -> Ethernet Kabel -> FritzBox 7490 (WLAN Brigde) -> WLAN -> FritzBox AX 3000 (WLAN Access Point) -> Ethernet Kabel -> Router
+```
+
+#### DynDNS
+
+Der Raspberry Pi 4 B ist über DynDNS erreichbar, was es ermöglicht, auf das Spiel zuzugreifen, ohne die IP-Adresse des Raspberry Pi 4 B zu kennen. Die DynDNS-Adresse wird über den Router aktualisiert, der die IP-Adresse des Raspberry Pi 4 B an den DynDNS-Dienst sendet, um die Adresse zu aktualisieren.
+
+Um auch hier den Kostenaspekt im Blick zu halten, wurde DynV6 als DynDNS-Dienst gewählt, da dieser kostenlos ist und eine einfache Konfiguration bietet.
+
+#### Verbindung zum Internet
+
+Wie schon im Abschnitt [Netzwerkaufbau](#netzwerkaufbau) zu sehen, ist der Raspberry Pi 4 B über eine WLAN-Brücke mit dem Internet verbunden. Die WLAN-Brücke ist eine FritzBox 7490, die als WLAN-Brücke konfiguriert ist und die Verbindung zum Internet über WLAN herstellt. Die FritzBox 7490 ist über ein Ethernet-Kabel mit dem Router verbunden, der die Verbindung zum Internet herstellt.
+
+Da der Router über einen Haushaltskundenvertrag bei der Telekom angemeldet ist, kriegt dieser leider keine statische IP-Adresse zugewiesen. Das würde bedeuten, dass sich ohne zusätzliche Maßnahmen die IP-Adresse des Routers ändern könnte. Um das zu verhindern, wird ein DynDNS-Dienst verwendet, der die IP-Adresse des Routers an einen DNS-Server sendet, um die IP-Adresse zu aktualisieren.
+
+#### Portweiterleitung
+
+Damit der Pi von außen erreichbar ist, muss der Port 80 auf den Pi weitergeleitet werden. Dies wird in der FritzBox 7490 konfiguriert. Die Portweiterleitung wird so konfiguriert, dass der Port 80 auf die IP-Adresse des Raspberry Pi 4 B weitergeleitet wird. Dadurch wird der Pi über die DynDNS-Adresse und den Port 80 erreichbar.
+
+Um den Raspberry Pi von außen zugänglich zu machen, muss die Portweiterleitung in der FritzBox 7490 konfiguriert werden. Die Ports 8080 und 8443 sind für HTTP bzw. HTTPS freigegeben und werden auf die IP-Adresse des Raspberry Pi 4 B weitergeleitet. Dadurch ist der Pi über die DynDNS-Adresse sowie über diese Ports von außen erreichbar.
+
+Die Abweichung von den Standard-Ports rührt daher, dass DynV6 die Ports 80 und 443 nicht freigibt. Damit soll verhindert werden, dass die DynDNS-Adresse für Hosting-Zwecke genutzt wird. Um das zu umgehen und dennoch auf den Pi zugreifen zu können, werden die Ports 8080 und 8443 verwendet.
+
+#### Firewall
+
+Die Firewall des Raspberry Pi 4 B ist so konfiguriert, dass nur der Port 80 für HTTP und der Port 443 für HTTPS geöffnet sind. Dadurch wird der Raspberry Pi 4 B vor unerwünschten Zugriffen geschützt und nur der Zugriff über die DynDNS-Adresse und die Ports 8080 und 8443 ermöglicht.
+
+Als Firewall-Software läuft auf dem Pi `UFW` (Uncomplicated Firewall), die über die Kommandozeile konfiguriert wird. Die Firewall ist so konfiguriert, dass nur der Port 80 für HTTP und der Port 443 für HTTPS geöffnet sind. Dadurch wird der Raspberry Pi 4 B vor unerwünschten Zugriffen geschützt und nur der Zugriff über die DynDNS-Adresse und die Ports 8080 und 8443 ermöglicht.
+
 
 ### GPIO Header
 
