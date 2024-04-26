@@ -15,6 +15,7 @@
             - [Benutzername und Passwort](#benutzername-und-passwort)
     - [MariaDB (MySQL)](#mariadb-mysql)
     - [Apache](#apache)
+    - [DynDNS](#dyndns)
     - [JavaScript](#javascript)
     - [HTML/CSS](#htmlcss)
     - [Composer](#composer)
@@ -181,6 +182,14 @@ MariaDB wird auf Linux-Servern häufig als Standarddatenbank verwendet, da es ei
 Apache ist ein Webserver, der für die Bereitstellung des Spiels verwendet wird. Apache ist einer der beliebtesten Webserver der Welt und wird auf Millionen von Websites und Anwendungen eingesetzt. In unserem Projekt verwenden wir Apache, um das Spiel auf einem Linux-Server bereitzustellen und den Datenverkehr zwischen dem Frontend und dem Backend zu verwalten.
 
 Zudem ist Apache ebenfalls kostenfrei und quelloffen, was es zu einer beliebten Wahl für Entwickler und Unternehmen macht, die eine zuverlässige und leistungsstarke Webserverlösung suchen.
+
+### DynDNS
+
+DynDNS (Dynamic Domain Name System) ist ein Dienst, der es Benutzern ermöglicht, dynamische IP-Adressen in statische Domainnamen umzuwandeln. In unserem Projekt verwenden wir DynDNS, um eine statische Domain für das Spiel zu erstellen und den Zugriff auf den Server zu erleichtern.
+
+In unserem Projekt werden die Services von DynV6 verwendet, um eine statische Domain für das Spiel zu erstellen und den Zugriff auf den Server zu erleichtern. DynV6 bietet einen kostenlosen DynDNS-Dienst, der es Benutzern ermöglicht, eine statische Domain für ihre Server und Anwendungen zu erstellen.
+
+Aktuell wird das Projekt auf einem Rapsberry Pi 4B (siehe [Hardware](doc/hardware.md)) gehostet, der über eine dynamische IP-Adresse verfügt, da er hinter einem Router betrieben wird, der vom ISP regelmäßig eine neue IP-Adresse zugewiesen bekommt. Um dennoch eine statische Domain für das Spiel zu erstellen, verwenden wir DynV6, um eine statische Domain für den Raspberry Pi 4B zu erstellen und den Zugriff auf den Server zu erleichtern.
 
 ### JavaScript
 
