@@ -1,5 +1,26 @@
 # SnakeGame
 
+- [Ordnerstruktur](#ordnerstruktur)
+    - [doc](#doc)
+    - [api](#api)
+    - [main](#main)
+    - [migrations](#migrations)
+    - [Scripts](#scripts)
+    - [static](#static)
+    - [vendor](#vendor)
+- [Technologien](#technologien)
+    - [PHP](#php)
+        - [PDO (Datenbankverbindung)](#pdo-datenbankverbindung)
+            - [DSN](#dsn)
+            - [Benutzername und Passwort](#benutzername-und-passwort)
+    - [MariaDB (MySQL)](#mariadb-mysql)
+    - [Apache](#apache)
+    - [JavaScript](#javascript)
+    - [HTML/CSS](#htmlcss)
+    - [Composer](#composer)
+        - [Externe Bibliotheken](#externe-bibliotheken)
+- [Dokumentation](doc/doc.md)
+
 ## Ordnerstruktur
 ```
 SnakeGame
@@ -157,3 +178,37 @@ $pass = 'password
 
 In diesem Beispiel wird der Benutzername (`root`) und das Passwort (`password`) verwendet, um sich bei der Datenbank anzumelden.
 Aus Sicherheitsgründen sollten Benutzername und Passwort in einer separaten Konfigurationsdatei gespeichert und nicht im Quellcode fest codiert werden.
+
+### MariaDB (MySQL)
+
+MariaDB ist eine relationale Datenbank, die für die Speicherung von Benutzerdaten und Punktzahlen verwendet wird. MariaDB ist eine Abspaltung von MySQL, die von den ursprünglichen Entwicklern von MySQL erstellt wurde. In unserem Projekt verwenden wir MariaDB, um Benutzerdaten, Punktzahlen und andere Spielinformationen zu speichern.
+
+MariaDB wird auf Linux-Servern häufig als Standarddatenbank verwendet, da es eine freie und quelloffene Alternative zu kommerziellen Datenbanken wie Oracle und Microsoft SQL Server ist. In unserem Projekt verwenden wir MariaDB, um die Datenbank für das Spiel zu hosten und zu verwalten.
+
+### Apache
+
+Apache ist ein Webserver, der für die Bereitstellung des Spiels verwendet wird. Apache ist einer der beliebtesten Webserver der Welt und wird auf Millionen von Websites und Anwendungen eingesetzt. In unserem Projekt verwenden wir Apache, um das Spiel auf einem Linux-Server bereitzustellen und den Datenverkehr zwischen dem Frontend und dem Backend zu verwalten.
+
+Zudem ist Apache ebenfalls kostenfrei und quelloffen, was es zu einer beliebten Wahl für Entwickler und Unternehmen macht, die eine zuverlässige und leistungsstarke Webserverlösung suchen.
+
+### JavaScript
+
+JavaScript ist eine Programmiersprache, die für die Spiellogik und die Benutzeroberfläche verwendet wird. JavaScript ist eine clientseitige Skriptsprache, die in Webbrowsern ausgeführt wird und es ermöglicht, interaktive Webseiten und Anwendungen zu erstellen. In unserem Projekt verwenden wir JavaScript, um die Spiellogik zu steuern, die Benutzeroberfläche zu interaktiv zu gestalten und Elemente in die HTML-Seiten zu laden.
+
+JavaScript wird häufig in Kombination mit HTML und CSS verwendet, um dynamische Webseiten und Anwendungen zu erstellen. In unserem Projekt verwenden wir JavaScript, um die Spiellogik zu steuern, die Benutzeroberfläche zu interaktiv zu gestalten und Elemente in die HTML-Seiten zu laden.
+Außerdem wird JavaScript verwendet um Teile der Benutzerobefläche wiederverwendbar zu machen, indem sie in externe Dateien ausgelagert werden und über JS in die HTML-Seiten geladen werden.
+
+### HTML/CSS
+
+HTML (Hypertext Markup Language) und CSS (Cascading Style Sheets) sind Markup-Sprache und Stylesheet-Sprache, die für die Benutzeroberfläche und das Design des Spiels verwendet werden. HTML wird verwendet, um die Struktur der Seiten zu definieren, während CSS für das Design und die Darstellung der Seiten verwendet wird. In unserem Projekt verwenden wir HTML und CSS, um die Benutzeroberfläche zu erstellen und das Design des Spiels zu definieren.
+
+HTML wird verwendet, um die Struktur der Seiten zu definieren, während CSS für das Design und die Darstellung der Seiten verwendet wird.
+
+### Composer
+
+Composer ist ein Paketmanager für PHP, der für die Verwaltung von Abhängigkeiten und Bibliotheken verwendet wird. Composer ermöglicht es Entwicklern, externe Bibliotheken und Abhängigkeiten zu installieren, zu aktualisieren und zu verwalten, die für die Entwicklung von PHP-Anwendungen benötigt werden. In unserem Projekt verwenden wir Composer, um externe Bibliotheken und Abhängigkeiten zu installieren, die für das Spiel benötigt werden.
+
+#### Externe Bibliotheken
+
+Aktuell verwenden wir keine externen Bibliotheken, die über Composer installiert werden. In Zukunft könnten wir jedoch externe Bibliotheken verwenden, um die Funktionalität des Spiels zu erweitern und die Entwicklung zu beschleunigen.
+
