@@ -100,9 +100,11 @@ sudo apt install apache2
 
 MariaDB dient als robuste Datenbanklösung für zahlreiche Anwendungen. Die Installation beginnt mit einem Update der Paketquellen, gefolgt von der Installation des MariaDB-Servers.
 
-Nach der Installation ist es wichtig, die Datenbanksicherheit zu verbessern, indem das Skript mysql_secure_installation ausgeführt wird. Dieses Skript hilft, einfache Sicherheitslücken wie das Entfernen anonymer Benutzer und das Deaktivieren des Remote-Root-Zugriffs zu schließen.
+Nach der Installation ist es wichtig, die Datenbanksicherheit zu verbessern, indem das Skript `mysql_secure_installation` ausgeführt wird. Dieses Skript hilft, einfache Sicherheitslücken wie das Entfernen anonymer Benutzer und das Deaktivieren des Remote-Root-Zugriffs zu schließen.
 
-Die Überprüfung des Dienststatus mit sudo systemctl status mariadb bestätigt, dass MariaDB aktiv und funktionsfähig ist. Für eine direkte Interaktion mit der Datenbank kann man sich mit sudo mysql -u root -p anmelden und die MariaDB-Version mit SHOW VARIABLES LIKE "%version%"; abfragen. Abschließend wird ein Neustart des Dienstes mit sudo systemctl restart mariadb empfohlen, um alle Änderungen wirksam zu machen.
+Die Überprüfung des Dienststatus mit `sudo systemctl status mariadb` bestätigt, dass MariaDB aktiv und funktionsfähig ist. Für eine direkte Interaktion mit der Datenbank kann man sich mit sudo `mysql -u root -p` anmelden und die MariaDB-Version mit `SHOW VARIABLES LIKE "%version%";` abfragen.
+
+Abschließend wird ein Neustart des Dienstes mit `sudo systemctl restart mariadb` empfohlen, um alle Änderungen wirksam zu machen.
 
 ```bash
 sudo apt update
@@ -110,7 +112,13 @@ sudo apt install mariadb-server
 sudo mysql_secure_installation
 sudo systemctl status mariadb
 sudo mysql -u root -p
+```
+
+```sql
 SHOW VARIABLES LIKE "%version%";
+```
+
+```bash
 sudo systemctl restart mariadb
 ```
 

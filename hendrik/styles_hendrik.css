@@ -1,0 +1,290 @@
+/* Grundlegende Styles */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    /* Zentriert den Container horizontal */
+    align-items: flex-start;
+    /* Startet die Ausrichtung am oberen Rand */
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Navbar am oberen Bildschirmrand fixieren */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--background-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1024px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.navbar-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: var(--hover-accent-color);
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin-top: 60px;
+    /* Fügt einen oberen Abstand hinzu, um den Inhalt unter der Navbar zu beginnen */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Toggle-Schalter im Light/Dark Mode */
+.toggle-switch {
+    width: 60px;
+    height: 34px;
+    background-color: var(--secondary-color);
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-knob {
+    width: 28px;
+    height: 28px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: left 0.3s;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .toggle-switch {
+    background-color: var(--primary-color);
+}
+
+body.dark-mode .toggle-knob {
+    left: 29px;
+    /* Bewegt den Knopf nach rechts */
+}
+
+:root {
+    /* Gemeinsame Basisfarben */
+    --accent-color: #1a8cff;
+    /* Akzentfarbe */
+    --hover-accent-color: #4db8ff;
+    /* Hover für Links */
+
+    /* Dark Mode spezifische Farben */
+    --background-color: #232323;
+    /* Dunkler Hintergrund */
+    --text-color: #ffffff;
+    /* Heller Text */
+    --primary-color: #66ffa6;
+    /* Hervorgehobene Farbe */
+    --secondary-color: #d9d9d9;
+    /* Abgeschwächter Text auf dunklem Hintergrund */
+    --box-background: rgba(35, 35, 35, 0.85);
+    /* Dunkler Box-Hintergrund für Kontrast */
+    --hover-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+    /* Schatten beim Hover */
+
+    /* Light Mode spezifische Farben */
+    --light-background-color: #f0f0f0;
+    /* Heller Hintergrund */
+    --light-text-color: #333;
+    /* Dunkler Text */
+    --light-primary-color: #005f73;
+    /* Hervorgehobene Farbe im Light Mode */
+    --light-secondary-color: #666;
+    /* Dunklerer Text auf hellem Hintergrund für bessere Lesbarkeit */
+    --light-box-background: #ffffff;
+    /* Heller Box-Hintergrund */
+    --light-hover-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Leichterer Schatten */
+}
+
+.light-mode {
+    --background-color: var(--light-background-color);
+    --text-color: var(--light-text-color);
+    --primary-color: var(--light-primary-color);
+    --secondary-color: var(--light-secondary-color);
+    --box-background: var(--light-box-background);
+    --hover-box-shadow: var(--light-hover-box-shadow);
+    --box-text-color: #ffffff;
+    /* Weißer Text für dunkle Boxen im Light Mode */
+}
+
+.dark-mode {
+    --background-color: #202020;
+    /* Dunkler Hintergrund */
+    --text-color: #e0e0e0;
+    /* Heller Text */
+    --secondary-color: #a0a0a0;
+    /* Heller Sekundärtext */
+    --box-text-color: #ffffff;
+    /* Standard weißer Text für dunkle Boxen im Dark Mode */
+}
+
+.container {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header,
+section,
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    background-color: var(--box-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+header:hover,
+section:hover,
+footer:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-box-shadow);
+}
+
+header h1,
+section h2 {
+    color: var(--primary-color);
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+header p,
+section p,
+footer p {
+    color: var(--secondary-color);
+    font-size: 1.1em;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--hover-accent-color);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #555;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+.skill-tree {
+    display: block;
+    /* Entferne Flex, da Masonry die Anordnung übernimmt */
+    overflow-x: hidden;
+    margin: 20px 0;
+    padding-bottom: 20px;
+}
+
+.skill-level {
+    width: 260px;
+    background: var(--box-background);
+    color: var(--box-text-color);
+    /* Textfarbe basierend auf Modus */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin: 10px;
+    text-align: left;
+}
+
+.skill-level h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.skill-level ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.skill-level li {
+    padding: 5px 0;
+    border-bottom: 1px solid #444;
+    color: var(--secondary-color);
+}
+
+.skill-level li:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 95%;
+    }
+
+    header,
+    section,
+    footer {
+        padding: 20px;
+    }
+
+    header h1,
+    section h2 {
+        font-size: 1.5em;
+    }
+
+    .skill-tree {
+        overflow-x: hidden;
+    }
+
+    .skill-level {
+        width: 100%;
+    }
+}

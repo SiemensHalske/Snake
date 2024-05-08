@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hendrik Siemens - Softwareentwickler</title>
+    <link rel="stylesheet" href="styles_hendrik.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elem = document.querySelector('.skill-tree');
+            var msnry = new Masonry(elem, {
+                itemSelector: '.skill-level',
+                columnWidth: 200
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var toggleSwitch = document.querySelector('.toggle-switch');
+            toggleSwitch.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                if (document.body.classList.contains('dark-mode')) {
+                    document.body.classList.remove('light-mode');
+                } else {
+                    document.body.classList.add('light-mode');
+                }
+            });
+        });       
+    </script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="#home" class="navbar-brand">Hendrik Siemens</a>
+            <div class="navbar-links">
+                <a href="#about">Über mich</a>
+                <a href="#skills">Fähigkeiten</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+            <div class="toggle-switch">
+                <div class="toggle-knob"></div>
+            </div>
+        </div>
+    </nav>    
+    <div class="container"> <!-- Zentraler Container für die vertikale Anordnung -->
+        <header>
+            <h1>Hendrik Siemens</h1>
+            <p>Softwareentwickler | Technologieenthusiast | Innovator</p>
+        </header>
+        <section id="about">
+            <h2>Über mich</h2>
+            <p>Hallo, ich bin Hendrik, ein passionierter Softwareentwickler mit einem starken Interesse an eingebetteten
+                Systemen, KI und ML. Ich liebe es, komplexe Probleme zu lösen und innovative Lösungen zu entwickeln, die
+                das Potenzial der Technologie voll ausschöpfen.</p>
+        </section>
+        <section id="skills">
+            <h2>Fähigkeiten</h2>
+            <div class="skill-tree">
+                <div class="skill-level">
+                    <h3>Fortgeschritten</h3>
+                    <ul>
+                        <li>
+                            <strong>HTML</strong>
+                            <ul>
+                                <li>HTML5</li>
+                                <li>Semantisches HTML</li>
+                                <li>Accessibility</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>CSS</strong>
+                            <ul>
+                                <li>CSS3</li>
+                                <li>Flexbox und Grid</li>
+                                <li>Responsive Design</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>JavaScript</strong>
+                            <ul>
+                                <li>ES6+</li>
+                                <li>Asynchrone Programmierung</li>
+                                <li>Frameworks: React</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Python</strong>
+                            <ul>
+                                <li>Datenanalyse mit Pandas</li>
+                                <li>Web-Entwicklung mit Django</li>
+                                <li>Machine Learning mit TensorFlow</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>TypeScript</strong>
+                            <ul>
+                                <li>Type-Safety im Frontend</li>
+                                <li>Integration mit Angular</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Bash</strong>
+                            <ul>
+                                <li>Shell-Skripte</li>
+                                <li>Automatisierungsaufgaben</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Batch</strong>
+                            <ul>
+                                <li>Windows-Scripting</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>TeX</strong>
+                            <ul>
+                                <li>Erstellung wissenschaftlicher Dokumente</li>
+                                <li>Custom LaTeX Packages</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="skill-level">
+                    <h3>Mittel</h3>
+                    <ul>
+                        <li>
+                            <strong>C</strong>
+                            <ul>
+                                <li>Grundlagen der Programmierung</li>
+                                <li>Memory Management</li>
+                                <li>Einfache Datenstrukturen</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="skill-level">
+                    <h3>Einsteiger</h3>
+                    <ul>
+                        <li>
+                            <strong>C#</strong>
+                            <ul>
+                                <li>Grundkenntnisse</li>
+                                <li>Einführung in .NET Framework</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Kontakt</h2>
+            <p>Sie erreichen mich unter: <a href="mailto:hendrik@example.com">hendrik@example.com</a></p>
+        </section>
+        <footer>
+            <p>© 2024 Hendrik Siemens. Alle Rechte vorbehalten.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
